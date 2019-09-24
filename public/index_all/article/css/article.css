@@ -1,0 +1,11 @@
+
+.info {
+    width: 90%;
+    height: 100px;
+    margin: auto;
+    text-indent: 10px;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

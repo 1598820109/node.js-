@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Purple Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/admin_all\vendors\iconfonts\mdi\css\materialdesignicons.min.css">
+  <link rel="stylesheet" href="/admin_all/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/admin_all/vendors/css/vendor.bundle.base.css">
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/admin_all/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body onload="createCode()">
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth">
+        <div class="row w-100">
+          <div class="col-lg-6 mx-auto">
+            <div class="auth-form-light text-left p-5">
+              <div class="brand-logo">
+                <img src="/admin_all/images/logo.svg">
+              </div>
+              <h4>欢迎注册！</h4>
+              <h6 class="font-weight-light">注册很容易。它只需要几个步骤</h6>
+
+              <form class="pt-3" action="/admin/user/registerInsert" method="post" onsubmit=" return regs('click')" id="register" >
+                <div class="form-group">
+                  <label for="exampleInputName1">账号</label> <label class="text-primary" style="float:right;" > 请输入您的账号</label>
+                  <input type="text" class="form-control" name="username" placeholder="用户名" id="username">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail3">密码</label> <label class="text-primary" style="float:right;" > 请输入您的密码</label>
+                  <input type="password" name="password" class="form-control" placeholder="密码" id="password">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword4">重复密码</label> <label class="text-primary" style="float:right;" > 请再次输入您的密码</label>
+                  <input type="password" class="form-control" name="repassword" placeholder="请再次确认密码" id="repassword">
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend"> 
+                      <span class="input-group-text bg-gradient-primary text-white" > 请输入验证码: </span>
+                    </div>
+                    <label class="text-info" id="CODE" style="position: absolute; right: 0px; margin-top: -17px;" ></label>
+                    <input type="text" name="code" class="form-control" aria-label="Amount (to the nearest dollar)" id="code">
+                    <div class="input-group-append">
+                            <input type="button" onclick="createCode()"  class="input-group-text  codeNumber" id="codeNumber" value="">
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <button type="submit" onclick="codeDate()"  class="btn btn-block btn-gradient-primary btn-lg ">注册</button>
+                </div>
+                <div class="my-2 d-flex justify-content-between align-items-center">
+                  <div class="form-check">
+                  </div>
+                </div>
+
+                <div class="text-center mt-4 font-weight-light">
+                  已有账号！ <a href="/admin/user/login" class="text-primary">直接登录</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/register.js"></script>
+</body>
+
+</html>

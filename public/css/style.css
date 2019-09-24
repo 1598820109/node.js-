@@ -1,0 +1,34 @@
+
+body {
+  padding:  0px 40px;
+  background-color:#94ebff26;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/* a {
+  color: #00B7FF;
+} */
+
+input.text-success-border{
+  border: 1px solid #1bcfb4;
+}
+
+
+.input-group-append .input-group-text, .input-group-prepend .codeNumber{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 26px;
+    letter-spacing: 10px;  /* 文本左右间距*/
+    outline-color: red;
+    color: darkmagenta;
+}
+
+
+#main-panel{
+  margin: 0px 140px;
+}
+
+.content-wrapper{
+
+  background-color: transparent;
+
+}

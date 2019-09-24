@@ -1,0 +1,60 @@
+<% include header %>
+
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">
+        课程栏目管理
+      </h3>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin/item/itemList">返回课程列表</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Basic elements</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title text-center">修改课程栏目</h4>
+            <p> </p>
+
+
+            <!-- form表单 -->
+            <form action="/admin/item/itemUpdate" method="post" class="forms-sample">
+              <div class="form-group">
+                <!-- 获取当前需要更新数据的id -->
+                <input type="hidden" value="<%=item._id%>" name="_id">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputName1">课程排序</label>
+                <input type="number" class="form-control" id="exampleInputName1" value="<%=item.order%>" name="order">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail3">课程名称</label>
+                <input type="text" class="form-control" id="exampleInputEmail3" value="<%=item.title%>" name="title">
+              </div>
+
+              <div class="form-group m">
+                <label class="" info="栏目简介" for="exampleTextarea1">课程简介 </label>
+                <textarea class="form-control" name="info" id="exampleTextarea1" style="width:50%" > 
+                    <%=item.info%>
+                </textarea>
+              </div>
+
+
+              <button type="submit" class="btn btn-gradient-primary mr-2"
+                onclick=" return alert('恭喜您，修改成功') ">确认修改</button>
+              <button type="reset" class="btn btn-light">重置</button>
+            </form>
+            <!-- form表单 end -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% include footer %>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Purple Admin</title>
+  <link rel="stylesheet" href="/admin_all\vendors\iconfonts\mdi\css\materialdesignicons.min.css">
+  <link rel="stylesheet" href="/admin_all/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/admin_all/css/style.css">
+  <link rel="shortcut icon" href="/admin_all/images/favicon.png" />
+  <!-- <link rel="stylesheet" href="/css/admin.css"> -->
+
+  <!-- 引入富文本文件 -->
+  <script src="/FWB/tinymce.min.js"></script>
+  <script>tinymce.init({selector:'textarea',toolbar1: "undo redo | cut copy paste | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+          toolbar2: " searchreplace | bullist numlist | outdent indent blockquote | link unlink anchor image media code | inserttime preview | forecolor backcolor",
+          toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+          menubar: false,
+          toolbar_items_size: 'small',
+          style_formats: [
+              {title: 'Bold text', inline: 'b'},
+              {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+              {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+              {title: 'Example 1', inline: 'span', classes: 'example1'},
+              {title: 'Example 2', inline: 'span', classes: 'example2'},
+              {title: 'Table styles'},
+              {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+          ],
+          templates: [
+              {title: 'Test template 1', content: 'Test 1'},
+              {title: 'Test template 2', content: 'Test 2'}
+          ],plugins: [
+              "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+              "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+              "table contextmenu directionality emoticons template textcolor paste fullpage textcolor"
+          ],language:'zh_CN'});
+    </script>
+</head>
+<body>
+  <div class="container-scroller">
+          <!-- 左侧栏目 -->
+          <div class="container-fluid page-body-wrapper">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+              <ul class="nav">
+                <li class="nav-item nav-profile">
+                  <a href="#" class="nav-link">
+                    <div class="nav-profile-image">
+                      <img src="/admin_all/images/faces/face1.jpg" alt="profile">
+                      <span class="login-status online"></span>
+                    </div>
+                    <div class="nav-profile-text d-flex flex-column">
+                      <span class="font-weight-bold mb-2">David Grey. H</span>
+                      <span class="text-secondary text-small">账号：
+                        <%-user.username%></span>
+                    </div>
+                    <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+                  </a>
+                </li>
+                <li class="nav-item" title="添加栏目">
+                  <a class="nav-link" href="/admin/item/itemAdd">
+                    <span class="menu-title1">Add columns</span>
+                    <i class="mdi mdi-clipboard-text menu-icon"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item" title="栏目管理">
+                  <a class="nav-link" href="/admin/item/itemList">
+                    <span class="menu-title1">columns management</span>
+                    <i class="mdi mdi-book-open menu-icon"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item" title="添加文章">
+                  <a class="nav-link" href="/admin/article/articleAdd">
+                    <span class="menu-title1">Add article</span>
+                    <i class="mdi mdi-book-open-page-variant menu-icon"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item card" title="文章管理">
+                  <a class="nav-link card-body" href="/admin/article/articleList">
+                    <span class="menu-title1">Article management</span>
+                    <i class=" mdi mdi-book-open-variant menu-icon"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <!-- 内容 -->
+              <div class="main-panel" id="main-panel">
+                <div class="content-wrapper">
+                  <div class="page-header">
+                    <h3 class="page-title ">
+                       Articlelist management to update 
+                    </h3>
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item" title="前往文章列表管理"><a href="/admin/article/articleList">Return to articleList management</a></li>
+                        <li class="breadcrumb-item active" aria-current="page" title="返回首页"><a href="/admin">Back to home page</a></li>
+                      </ol>
+                    </nav>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title text-center "> Update articleList </h4>
+                          <p> </p>
+
+
+                          <!-- 修改图片 -->
+                          <form class="forms-sample" action="/admin/article/articleImage" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                              <label>Upload pictures</label>
+                              <input type="hidden" name="_id" value="<%=article._id%>">
+                              <input type="file" name="imgurl" class="file-upload-default">
+                              <div class="input-group col-xs-12">
+                                <input type="text" class="form-control file-upload-primary" disabled placeholder=" <%=article.imgurl%> ">
+                                <span class="input-group-append">
+                                  <button class="file-upload-browse btn btn-gradient-success" type="button">Modify pictures</button>
+                                  &nbsp; &nbsp;
+                                  <button type="submit" class="btn btn-inverse-success  btn-fw" onclick="return confirm('您确定要上传吗？')">Confirm pictures</button>
+                                </span>
+                              </div>
+                            </div>
+                          </form>
+                          <!-- 修改图片end -->
+
+                          <!-- form表单 -->
+                          <form class="forms-sample" action="/admin/article/articleUpload" method="post" >
+                             <input type="hidden" name="_id" value="<%=article._id%>">
+            
+                            <div class="form-group">
+                              <label class="" title=" 文章排序 " for="exampleInputName1"> Article sorting </label>
+                              <input type="number" class="form-control" id="exampleInputName1"   value="<%=article.order%>" name="order">
+                            </div>
+            
+                            <div class="form-group">
+                              <label class="" title="文章分类" for="exampleFormControlSelect1">Article classfication </label>
+                              <select class="form-control form-control-lg"  name="itemId">
+                                <% item.forEach(function(val){ %>
+                                <option <%=val._id.toString()==article.itemId?'selected':''%> value="<%=val._id%>">
+                                  <%=val.title%>
+                                </option>
+                                <% })%>
+                              </select>
+                            </div>
+            
+                            <div class="form-group ">
+                              <label class="" title="文章名称"  for="exampleInputEmail3">Article name</label>
+                              <input type="text" class="form-control" id="exampleInputEmail3" value="<%=article.title%>"  name="title">
+                            </div>
+            
+                            <div class="form-group ">
+                              <label class="" title="文章作者"  for="exampleInputEmail3">Article author</label>
+                              <input type="text" class="form-control" id="exampleInputEmail3" value="<%=article.author%>" name="author">
+                            </div>
+            
+                            <div class="form-group ">
+                              <label class="" title="文章简介" for="exampleInputEmail3">Article introduction</label>
+                              <input type="text" value="<%=article.keyword%>" class="form-control" id="exampleInputEmail3" style="height: 80px;" rows="4" name="keyword">
+                            </div>
+            
+                            <div class="form-group m">
+                              <label class="" title="文章内容" for="exampleTextarea1">Article content </label>
+                              <textarea  class="form-control" name="content" id="exampleTextarea1" style="width:50%"> <%=article.content%> </textarea>
+                            </div>
+            
+                            <button type="submit" class="btn btn-dark btn-fw mr-2" onclick="return alert('恭喜您,添加成功')">Confimr revision</button>
+                            <button type="reset" class="btn btn-outline-dark btn-fw">Resert</button>
+                          </form>
+                          <!-- form表单 end -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <script src="/admin_all/vendors/js/vendor.bundle.base.js"></script>
+      <script src="/admin_all/js/file-upload.js"></script>
+      <script src="/admin_all/vendors/js/vendor.bundle.base.js"></script>
+      <script src="/admin_all/vendors/js/vendor.bundle.addons.js"></script>
+      <script src="/admin_all/js/off-canvas.js"></script>
+      <script src="/admin_all/js/misc.js"></script>
+      <script src="/admin_all/js/dashboard.js"></script>
+</body>
+
+</html>

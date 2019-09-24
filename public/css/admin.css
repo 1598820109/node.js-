@@ -1,0 +1,22 @@
+.content-wrapper .row .fileimgurl{
+    position: relative;
+    top: 57px;
+    left: 0px;
+    width: 149px;
+    height: 46px;
+    z-index: 100;
+    opacity: 0;
+    display: block;
+}
+
+.sidebar .nav .nav-item.active > .nav-link i {
+    color: #7a838e9e;
+}
+
+.sidebar .nav .nav-item:hover .nav-link span{
+    color: #8a0eca9e;
+}
+
+.sidebar .nav .nav-item:hover .nav-link i{
+    color: #8a0eca9e;
+}

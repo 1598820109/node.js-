@@ -1,0 +1,20 @@
+/* .card .table tr{
+    height: 28px;
+} */
+
+.card .table td{
+    vertical-align: middle;
+    text-align: left;
+}
+
+
+.card .table th{
+     vertical-align: middle;
+     font-weight:normal;
+     text-align: center;
+}
+
+.card .table th a{
+     margin: 0px 20px;
+}
+

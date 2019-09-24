@@ -1,0 +1,80 @@
+<% include header%>
+
+<!-- 内容 -->
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title" title="栏目列表管理">
+                Columns list management
+            </h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item" title="前往栏目列表"><a href="/admin/item/itemAdd">Return to columns
+                            management </a></li>
+                    <li class="breadcrumb-item active" title="返回首页"> <a href="/admin"> Back to home page</a> </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Columns list</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th title="栏目排序"> Columns sorting </th>
+                                        <th title="栏目名称"> Columns name </th>
+                                        <th title="栏目创建时间"> Columns ctime</th>
+                                        <th title="栏目操作"> Columns operation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <% items.forEach(function(val){ %>
+                                    <tr>
+                                        <th>
+                                            <%=val.order%>
+                                        </th>
+                                        <th>
+                                            <%=val.title%>
+                                        </th>
+                                        <th>
+                                            <%=val.ctime%>
+                                        </th>
+                                        <th>
+                                            <a href="/admin/item/itemAttrice/<%=val._id%>" onclick="return confirm('你确定要修改吗？')">修
+                                                改 </a>
+                                            |
+                                            <a class="text-danger" href="/admin/item/itemRemove/<%=val._id %>" onclick="return confirm('您确定要删除吗？') ">
+                                                删 除 </a>
+                                        </th>
+                                    </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                            <br>
+                            &nbsp;   
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="/admin/item/itemList" class="text-black  btn btn-link btn-sm ">Home page</a>
+
+                                <a href="/admin/item/itemList?page=<%=page-1%>" class="text-black  btn btn-link btn-sm">Previous page</a>
+
+                                <% for(var i = 1; i<= maxPage; i++){ %>
+                                <a href="/admin/item/itemList?page=<%=i%>" class="text-black btn btn-link btn-sm" >
+                                    <%=i%></a>
+                                <% } %>
+
+                                <a href="/admin/item/itemList?page=<%=-(-page-1)%>" class="text-black btn btn-link btn-sm" >Next page</a>
+
+                                <a href="/admin/item/itemList?page=<%=maxPage%>" class="text-black btn btn-link btn-sm">Tail page</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 内容 -->
+    <% include footer%>

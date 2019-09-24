@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/index_all/list/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/index_all/list/css/default.css">
+	<link rel="stylesheet" type="text/css" href="/index_all/list/fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="/index_all/list/css/style2.css" />
+	<script src="/index_all/list/js/modernizr.custom.js"></script>
+</head>
+<body>
+	<div class="container">
+		<button id="menu-toggle" class="menu-toggle"><span>Menu</span></button>
+		<div id="theSidebar" class="sidebar">
+			<button class="close-button fa fa-fw fa-close"></button>
+		</div>
+		<div id="theGrid" class="main">
+			<section class="grid">
+				<% article.forEach(function(val,i){%>
+					<a class="grid__item" href="#">
+						<h2 class="title title--preview"><%=val.title%></h2>
+						<div class="loader"><%=val.author%></div>
+						<span class="category"></span>
+						<div class="meta meta--preview">
+							<img class="meta__avatar" src="/articleImages/<%=val.imgurl%>" alt="author04"/ style="width:40px;height:40px;"> 
+
+							<span class="meta__date"><i class="fa fa-calendar-o"></i> <%=i+1%> Apr</span>
+							<span class="meta__reading-time"><i class="fa fa-clock-o"></i><%=val.ctime.getFullYear()%> / <%=val.ctime.getMonth()%> / <%=val.ctime.getDate()  %></span>
+						</div>
+					</a>
+				<%})%>
+			</section>
+			<section class="content">
+				<div class="scroll-wrap">
+
+				<% article.forEach(function(val,i){%>
+					<article class="content__item">
+						<span class="category category--full"> <%=val.author%> </span>
+						<h2 class="title title--full"> <%=val.title%>  </h2>
+						<div class="meta meta--full">
+							<img class="meta__avatar" src="/articleImages/<%=val.imgurl%>" alt="author04" style="width:40px;height:40px;" />
+							<span class="meta__author"><%=val.author%></span>
+							<span class="meta__date"><i class="fa fa-calendar-o"></i><%=val.order%> Apr</span>
+							<span class="meta__reading-time"><i class="fa fa-clock-o"></i> <%=val.ctime.getFullYear()%> / <%=val.ctime.getMonth()%> / <%=val.ctime.getDate()  %></span>
+							<span class="meta__misc meta__misc--seperator"><i class="fa fa-comments-o"></i> 54 comments</span>
+							<span class="meta__misc"><i class="fa fa-heart"></i> 278 favorites</span>
+							<nav class="article-nav">
+
+								<button onclick="fz()">
+									<i class="fa fa-angle-left"></i>
+									<span>
+										返回文章
+									</span>
+								</button>
+								<button onclick="fn()"><span>首页</span> <i class="fa fa-angle-right"></i></button>
+							</nav>
+						</div>
+						<p>
+							<%-val.content%>
+						</p>
+					</article>
+				<%})%>
+				</div>
+				<button class="close-button"><i class="fa fa-close"></i><span>Close</span></button>
+			</section>
+		</div>
+	</div>
+
+	<script>
+		
+		function fz(){
+			window.location.href = '/article';
+		}
+
+		function fn(){
+			window.location.href = '/';
+		}
+		
+	</script>
+	<script src="/index_all/list/js/classie.js"></script>
+	<script src="/index_all/list/js/main.js"></script>
+</body>
+</html>

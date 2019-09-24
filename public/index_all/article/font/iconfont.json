@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5473420",
+      "name": "换一批",
+      "font_class": "huanyipi",
+      "unicode": "e6c6",
+      "unicode_decimal": 59078
+    },
+    {
+      "icon_id": "7987632",
+      "name": "换一批",
+      "font_class": "huanyipi1",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "9884370",
+      "name": "换一批",
+      "font_class": "huanyipi2",
+      "unicode": "e826",
+      "unicode_decimal": 59430
+    }
+  ]
+}
